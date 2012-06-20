@@ -1,7 +1,8 @@
 import QtQuick 1.0
 
-Item {
-    anchors.leftMargin: 8
+Rectangle {
+    anchors.leftMargin: 1
+    color: "transparent"
     width:200 //!!! absolute value of width
 
     ListModel{
@@ -48,18 +49,57 @@ Item {
         ItemDelegate{
             module_name: model.module_name
             icon: model.icon
+            gradient: Gradient{
+                GradientStop{
+                    id: gradientStopTop
+                    position: 0.0;
+                    color: "#c7e6fc"
+                }
+                GradientStop{
+                    id: gradientStopBottom
+                    position: 1.0
+                    color: "#9dceef"
+                }
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked:{
+                    leftListView.currentIndex = index
+                    leftListView.currentItem.z = -1
+                }
+            }
         }
         id: my_delegate
     }
 
-    ListView{
-        spacing: 8
+    Component{
+        ItemDelegate{
+            z: +2
+            module_name: leftListView.currentItem.module_name
+            icon: leftListView.currentItem.icon
+            gradient: Gradient{
+                GradientStop{
+                    position: 0.0
+                    color: "#f00"
+                }
+                GradientStop{
+                    position: 1.0
+                    color: "#fff"
+                }
+            }
+        }
+        id: my_delegate_highlight
+    }
+
+    ListView {
+        anchors.fill: parent
+        spacing: 5
         id : leftListView
         model: leftListModel
+        highlight: my_delegate_highlight
         delegate: my_delegate
-        anchors.fill: parent
-        MouseArea {
-            anchors.fill: parents
-        }
+        focus: true
     }
+
 }

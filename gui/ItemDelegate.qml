@@ -7,21 +7,23 @@ Rectangle {
     width:200
     radius: 10
 
+    /*
     gradient: Gradient{
         GradientStop{
             id: gradientStopTop
             position: 0.0;
-            color: "#c7e6fc"
+            color: ListView.isCurrentItem ? "#fff" : "#c7e6fc"
         }
         GradientStop{
             id: gradientStopBottom
             position: 1.0
-            color: "#9dceef"
+            color: ListView.isCurrentItem ? "#f00" : "#9dceef"
         }
     }
+    */
 
-    border.color: "#91c7ec"
-    border.width: 2
+    border.width: 1
+    //border.color: "#91c7ec"
     smooth: true
 
     property string module_name: "Module Name"
@@ -64,12 +66,14 @@ Rectangle {
     MouseArea{
         id: mouse
         anchors.fill: parent
-        onEntered: parent.scale = 1.1
-        onExited: parent.scale = 1.0
-        hoverEnabled: true
+        //onEntered: parent.scale = 1.1
+        //onExited: parent.scale = 1.0
+        //hoverEnabled: true
+        /*
         onClicked: {
             gradientStopBottom.color = "#f00"
             gradientStopTop.color = "#fff"
         }
+        */
     }
 }

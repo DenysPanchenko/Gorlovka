@@ -2,8 +2,8 @@ import QtQuick 1.0
 
 Rectangle {
     id: main
-    width: 600
-    height: 400
+    width: 800
+    height: 600
 
     gradient: Gradient{
         GradientStop{
