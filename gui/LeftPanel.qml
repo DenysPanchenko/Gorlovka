@@ -3,7 +3,7 @@ import QtQuick 1.0
 Rectangle {
     anchors.leftMargin: 1
     color: "transparent"
-    width:200 //!!! absolute value of width
+    width: 200 //!!! absolute value of width
 
     ListModel{
         ListElement{
@@ -94,7 +94,7 @@ Rectangle {
 
     ListView {
         anchors.fill: parent
-        spacing: 5
+        spacing: 3
         id : leftListView
         model: leftListModel
         highlight: my_delegate_highlight
