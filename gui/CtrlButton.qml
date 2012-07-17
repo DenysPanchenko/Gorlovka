@@ -4,10 +4,7 @@ Rectangle{
     width:  48
     height: 48
 
-    anchors.topMargin:    10
-    anchors.leftMargin:   10
-    anchors.rightMargin:  10
-    anchors.bottomMargin: 10
+    anchors.margins: 10
 
     radius: 10
     smooth: true

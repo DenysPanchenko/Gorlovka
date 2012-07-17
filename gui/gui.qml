@@ -16,14 +16,6 @@ Rectangle {
         }
     }
 
-    MainMenu{
-        z: +2
-        id: mainMenu
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.right: parent.right
-    }
-
     Rectangle{
         anchors.top: mainMenu.bottom
         anchors.left: parent.left
@@ -118,10 +110,30 @@ Rectangle {
     }
 
     TopPanel{
+        id: topPanel
         border.color: "black"
         border.width: 2
         anchors.top: topListTitle.bottom
         anchors.left: leftPanel.right
         anchors.right: parent.right
+    }
+
+    TabWidget {
+        anchors.top: topPanel.bottom
+        anchors.left: leftPanel.right
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        id: tabs
+
+        TabPage{
+            title: "Module 1"
+        }
+        TabPage{
+            title: "Module 2"
+        }
+        TabPage{
+            title: "Preview"
+        }
     }
 }
