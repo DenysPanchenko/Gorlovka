@@ -6,12 +6,16 @@
 #include <QFile>
 #include <QMenu>
 #include <QMenuBar>
+#include <QTreeView>
 #include <QStatusBar>
 #include <QMainWindow>
 #include <QTextStream>
 #include <QPluginLoader>
+#include <QGraphicsObject>
+#include <QDeclarativeItem>
 #include <QDeclarativeView>
 
+#include "sort/treemodel.h"
 #include "plugininterface.h"
 #include "configparser.h"
 
@@ -23,6 +27,8 @@ private:
     QMenu* fileMenu;
     QMenu* editMenu;
     QMenu* helpMenu;
+    QTreeView* treeView;
+    TreeModel* treeModel;
     QDeclarativeView* centralWidget;
 
     void setTitles();

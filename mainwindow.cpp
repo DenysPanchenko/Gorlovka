@@ -6,12 +6,24 @@ MainWindow::MainWindow(QWidget *parent) :
     mainMenu = new QMenuBar(this);
     setMenuBar(mainMenu);
 
-    centralWidget = new QDeclarativeView();
+    centralWidget = new QDeclarativeView;
     centralWidget->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     centralWidget->setSource(QUrl::fromLocalFile("./gui/gui.qml"));
     centralWidget->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
 
     setCentralWidget(centralWidget);
+
+    treeModel = new TreeModel;
+
+    treeView = new QTreeView;
+    treeView->setModel(treeModel);
+
+    QObject *rootObject = centralWidget->rootObject();
+    QObject* tabWidget = rootObject->findChild<QObject*>("treePage");
+    if(tabWidget){
+    }
+    else
+        qDebug("can't find rect");
 
     loadPlugins();
 }
@@ -31,5 +43,5 @@ void MainWindow::loadPlugins(){
 }
 
 void MainWindow::initializePlugin(QObject *pntr){
-    ModuleInterface* module = qobject_cast(pntr);
+    //ModuleInterface* module = qobject_cast(pntr);
 }

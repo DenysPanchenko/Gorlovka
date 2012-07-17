@@ -59,6 +59,7 @@ Rectangle {
     CtrlButtonsPanel{
         id: bottomButtons
 
+
         z: +1
         height: 68
         width: leftPanel.width + 1
@@ -119,12 +120,12 @@ Rectangle {
     }
 
     TabWidget {
+        objectName: "tabWidget"
+
         anchors.top: topPanel.bottom
         anchors.left: leftPanel.right
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-
-        id: tabs
 
         TabPage{
             title: "Module 1"
@@ -133,6 +134,7 @@ Rectangle {
             title: "Module 2"
         }
         TabPage{
+            objectName: "treePage"
             title: "Preview"
         }
     }
